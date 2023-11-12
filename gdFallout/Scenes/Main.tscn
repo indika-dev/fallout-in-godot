@@ -1,0 +1,48 @@
+[gd_scene load_steps=4 format=3 uid="uid://mpdw31w5xplu"]
+
+[ext_resource type="PackedScene" uid="uid://daxcc2ru2ojy2" path="res://Scenes/playerscene.tscn" id="1_6twt1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6gwek"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1wi80"]
+size = Vector3(1, 0.304463, 1)
+
+[node name="Main" type="Node3D"]
+
+[node name="Player" parent="." instance=ExtResource("1_6twt1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1.47223)
+
+[node name="Pivot" type="Node3D" parent="Player"]
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(-3.82927, -0.581077, 0, 15.4757, -0.14378, 0, 0, 0, 7.04268, 7.31462, -0.966136, -2.54256)
+mesh = SubResource("BoxMesh_6gwek")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.601984, -0.598174, 0, 15.931, 0.0226031, 0, 0, 0, 7.04268, -7.90117, -0.966136, -2.54256)
+mesh = SubResource("BoxMesh_6gwek")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="."]
+transform = Transform3D(15.9424, 0, 0, 0, 0.0258392, 7.03611, 0, -0.598043, 0.304005, -0.240549, 2.56043, -5.17307)
+mesh = SubResource("BoxMesh_6gwek")
+
+[node name="Lights" type="Node3D" parent="."]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lights"]
+transform = Transform3D(-0.998528, -0.0309795, 0.0445172, 0, 0.82081, 0.571201, -0.0542357, 0.57036, -0.819602, 0, 1.09742, -3.23657)
+
+[node name="Ground" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.448604, -0.808323, -2.07272)
+shape = SubResource("BoxShape3D_1wi80")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ground"]
+transform = Transform3D(15.9424, 0, 0, 0, 0.598601, 0, 0, 0, 7.04268, -0.240549, -0.966136, -2.54256)
+mesh = SubResource("BoxMesh_6gwek")
+skeleton = NodePath("../..")
+
+[node name="Camerapivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Camerapivot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.473559)

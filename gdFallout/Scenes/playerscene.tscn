@@ -1,0 +1,88 @@
+[gd_scene load_steps=14 format=3 uid="uid://daxcc2ru2ojy2"]
+
+[ext_resource type="Texture2D" uid="uid://d0djok8y1fmuk" path="res://Assets/Player/Player Front Sheet.png" id="1_kgjqn"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_utdey"]
+[ext_resource type="Script" path="res://Scenes/DudeSprite.gd" id="3_1sto4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxcg1"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(0, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_88hp7"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(48, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ohoit"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(96, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pobo0"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(144, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1inbc"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(192, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6alya"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(240, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3d7l"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(288, 44, 48, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8c2mf"]
+atlas = ExtResource("1_kgjqn")
+region = Rect2(336, 44, 48, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0fyc0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxcg1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_88hp7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ohoit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pobo0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1inbc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6alya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3d7l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8c2mf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_o2247"]
+radius = 0.2
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_utdey")
+
+[node name="Node3D" type="Node3D" parent="."]
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="Node3D"]
+billboard = 2
+sprite_frames = SubResource("SpriteFrames_0fyc0")
+frame = 1
+frame_progress = 0.004469
+script = ExtResource("3_1sto4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00082618, -0.0427197, 0.0146716)
+shape = SubResource("SphereShape3D_o2247")
